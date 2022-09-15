@@ -1,0 +1,131 @@
+<?php include "conn.php"; ?>
+<?php 
+session_start(); 
+
+if (!isset($_SESSION['username'])) {
+	$_SESSION['msg'] = "Debes iniciar sesión.";
+	header('location: ../../view/loginCuidadores.php');
+}
+
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['username']);
+	header("location: ../../view/loginCuidadores.php");
+}
+
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--Esto hace que si estamos trabajando con resposive desing que nuestra web se vea bien en todos los navegadores, incluyendo dispositivos móviles-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Cuenta Cuidador</title>
+	<!--Se cargan los archivos externos de CSS-->
+	<link rel="stylesheet" href="datatables/dataTables.bootstrap.css"/>
+	<link type="text/css" href="css/bootstrap.css" rel="stylesheet">
+	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'    rel='stylesheet'> 
+	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<nav class="navbar navbar-light bg-primary static-top">
+		<div class="container-fluid">
+			<div class="row">
+				<a class="navbar-brand" href="cuidador.php" style="font-size: 20px; margin-left: 10%;font-weight: bold;">Página principal</a>
+				<?php  if (isset($_SESSION['username'])) : ?>
+					<a class="btn btn-danger pull-right" style="margin-right: 5%; margin-top: 0.6%" href="../../controller/indexCuidadores.php?logout='1'">Desconectar</a> 
+				<?php endif ?>
+			</div>
+		</div>
+	</nav>
+
+	<div class="content container-fluid">
+
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="pull-left">
+					<p>Bienvenido/a <strong><?php echo $_SESSION['username']; ?></strong></p>
+				</div>
+				<br>
+				<hr>
+				<table id="lookup" class="table table-bordered table-hover table-responsive">  
+					<thead bgcolor="#eeeeee" align="center">
+						<tr>
+
+							<th>Niño</th>
+							<th>Tutor</th>
+							<th>Dirección</th>
+							<th>Teléfono</th>
+
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+	<!--/.content-->
+	<!--/.wrapper--><br />
+	<div class="footer span-12">
+		<div class="container">
+			<center> <b class="copyright"><a href=""> Alberto Diéguez Álvarez</a> &copy; <?php echo date("Y")?> Guardería Lobitos </b></center>
+		</div>
+	</div>
+	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+	<script src="datatables/jquery.dataTables.js"></script>
+	<script src="datatables/dataTables.bootstrap.js"></script>
+	<script>
+		$(document).ready(function() {
+			var dataTable = $('#lookup').DataTable( {
+
+				"language":	{
+					"sProcessing":     "Procesando...",
+					"sLengthMenu":     "Mostrar _MENU_ registros",
+					"sZeroRecords":    "No se encontraron resultados",
+					"sEmptyTable":     "Ningún dato disponible en esta tabla",
+					"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+					"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+					"sInfoPostFix":    "",
+					"sSearch":         "Buscar:",
+					"sUrl":            "",
+					"sInfoThousands":  ",",
+					"sLoadingRecords": "Cargando...",
+					"oPaginate": {
+						"sFirst":    "Primero",
+						"sLast":     "Último",
+						"sNext":     "Siguiente",
+						"sPrevious": "Anterior"
+					},
+					"oAria": {
+						"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					}
+				},
+
+				"processing": true,
+				"serverSide": true,
+				"ajax":{
+url :"ajax-grid-data.php", // json datasource
+type: "post",  // method  , by default get
+error: function(){  // error handling
+	$(".lookup-error").html("");
+	$("#lookup").append('<tbody class="employee-grid-error"><tr><th colspan="3">No se han encontrado datos en el servidor.</th></tr></tbody>');
+	$("#lookup_processing").css("display","none");
+
+}
+}
+} );
+		} );
+	</script>  
+</body>
+</html>

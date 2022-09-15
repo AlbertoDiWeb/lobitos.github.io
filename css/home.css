@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'BlackJack';
+	src: url('../fonts/blackjack.otf');
+	src: url('WebFont.eot?iefix') format('eot'),
+	url('../fonts/blackjack-webfont.woff') format('woff'),
+}
+#bienvenido{
+	font-family: BlackJack;
+	text-decoration: none;
+	margin: 0 auto;
+	color: white;
+}

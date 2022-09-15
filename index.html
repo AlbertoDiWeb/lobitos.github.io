@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--Esto hace que si estamos trabajando con resposive desing que nuestra web se vea bien en todos los navegadores, incluyendo dispositivos móviles-->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Lobitos</title>
+	<!--Se cargan los archivos externos de CSS-->
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all">
+</head>
+<!--Cuerpo de la Web-->
+<body id="page-top">
+<!--Parte superior donde está el logo y la barra de navegación. 
+navbar-expand-lg: indica que la barra se mostrará  completa a partir del tamaño de pantalla grande (lg), colapsándose para tamaños máspequeños.
+navbar-light: tema de la barra 'claro'. 
+fixed-top: la fija en la parte superior.
+py-0: padding en el eje 'y' = 0 rem (rem: el tamaño depende del elemento raiz del documento, por defecto 16px = 1 rem); 
+-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-0" id="mainNav" style="background: white;">
+	<!--Contenedor de las 12 columnas-->
+	<div class="container">
+<!--
+navbar-brand: Para el logo
+js-scroll-trigger: Mejora el scroll de la página
+-->
+<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/wolf.svg" width="50" height="50" alt="" style="margin-bottom: 20px;"><span class="brand-logo" style="margin-top: 15px">Lobitos</span></a>
+<!--
+-> navbar-toggler navbar-toggler-right: Barra de navegación con un desplegable al final, de tipo botón
+-> data-toggle="collapse": esconde el contenido
+-> data-target="#navbarResponsive": Redimensiona la barra a la ventana
+-> aria-controls="navbarResponsive": ARIA significa Accessible Rich Internet Applications. Es un atributo de relación que marca
+los elementos de una página sobre los que un elemento o conjunto de elementos tiene control y afecta. Se usa para
+describir una relación entre un botón y la región expandible revelada ppor ese botón.
+-> aria-expanded="false":
+-->
+<div class="navbar-toggler navbar-toggler-right" id="nav-mhweb-hamburger" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="margin-bottom:10px;">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+	<ul class="navbar-nav ml-auto my-2 my-lg-0">
+		<li class="nav-item">
+			<a class="nav-link js-scroll-trigger" href="#about">Nosotros</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link js-scroll-trigger" href="#persona">Personal</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link js-scroll-trigger" href="#instalaciones">Instalaciones</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link js-scroll-trigger" href="#contacto">Contacto</a>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Acceder
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu">
+				<a class="dropdown-item" href="view/loginCuidadores.php">Cuidadores</a>
+				<a class="dropdown-item" href="view/login.php">Padres</a>
+			</div>
+		</ul>
+	</div>
+</div>
+</nav>
+<!-- Masthead -->
+<header class="masthead">
+	<div class="container h-100">
+		<div class="row h-100 align-items-center justify-content-center text-center">
+			<div class="col-lg-10 align-self-end">
+				<span style="font-family: fff_tusjbold;">
+					<h1 class="text-uppercase text-white font-weight-bold">Guardería Lobitos,
+						crece y aprende con nosotros
+					</h1>
+				</span>
+				<hr class="divider my-4">
+			</div>
+			<div class="col-lg-8 align-self-baseline">
+				<p class="text-white-75 font-weight-light mb-5" style="color: white;">Tu guardería de confianza, porque los niños son lo importante</p>
+				<a class="btn btn-primary btn-xl js-scroll-trigger" href="doc/Base de datos guardería LOBITOS.docx">Descargar información</a>
+			</div>
+		</div>
+	</div>
+</header>
+<div style="height: 70px;" id="about">
+
+</div>
+<!-- Primera imagen y texto -->
+<section id="" class="about">
+	<div class="container pt-0">
+		<div class="row align-items-center">
+			<div class="col-lg-6 order-lg-2">
+				<div class="p-4">
+					<img class="img-fluid rounded-circle" src="img/guarderiaExterior.jpg" alt="" data-toggle="modal" data-target="#about1">
+				</div>
+			</div>
+			<div class="col-lg-6 order-lg-1">
+				<div class="p-2">
+					<h2 class="display-4">Nuestro centro</h2>
+					<p>Nuestro centro está reformado y adaptado para los niños. Nuestras zonas estás preparadas para que 
+					nuestros niños disfruten de un espacio amplio y limpio. Disponemos de varias amplias zonas de juego y zonas verdes.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About Modal 1 -->
+	<div class="about-modal modal fade" id="about1" tabindex="-1" role="dialog" aria-labelledby="about1" aria-hidden="true">
+		<div class="modal-dialog modal-xl" role="document">
+			<div class="modal-content">
+				<div class="modal-body text-center">
+					<div class="container" style="width: 60%; height: 60%;">
+						<div class="row justify-content-center">
+							<div class="col-lg-8">
+								<!-- About Modal - Título -->
+								<h2 class="about-modal-title text-secondary text-uppercase mb-0">Foto del exterior</h2>
+								<div class="divider-custom-line"></div>
+							</div>
+							<!-- About Modal 1 - Imagen -->
+							<!-- When you set the tabindex=-1 for an element it allows it to get focus() through javascript. If instead you want it to get focus through tabbing through elements, then you would set the tabindex attribute to 0. -->
+							<img class="img-fluid rounded mb-2" src="img/guarderiaExterior.jpg" style="cursor:zoom-in"
+							onclick="document.getElementById('modal01').style.display='block'">
+							<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+								<div class="w3-modal-content w3-animate-zoom">
+									<img src="img/guarderiaExterior.jpg" style="width:100%;" id="img01">
+								</div>
+							</div>
+							<!-- About 1 Modal - Text -->
+							<p class="mb-2">Nuestro centro situado en la Avenida Monte Medulio está rodeado de campos verdes y 
+							tranquilidad para que sus hijos respiren aire fresco y disfruten de una amplia zona de juegos. </p>
+							<button class="btn btn-primary" href="#" data-dismiss="modal">
+								Cerrar ventana
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Segunda imagen y texto -->
+<section class="about">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-6">
+				<div class="p-4">
+					<img class="img-fluid rounded-circle" src="img/nosotros2.jpg" alt="" data-toggle="modal" data-target="#about2">
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="p-2">
+					<h2 class="display-4">Nuestro equipo</h2>
+					<p>Nuestro equipo está formado por personal cualificado en diversas materias. Contamos con experiencia en el 
+					ámbito infantil, nuestros años en Lobitos nos avalan. Sus hijos contarán con el mejor cuidado en nuestras manos.
+				También disponemos de médico, cocinero/a, psicologo...Esta foto muestra nuestros cuidadores/educadores infantiles.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About Modal 2 -->
+	<div class="about-modal modal fade" id="about2" tabindex="-1" role="dialog" aria-labelledby="about2" aria-hidden="true">
+		<div class="modal-dialog modal-xl" role="document">
+			<div class="modal-content">
+				<div class="modal-body text-center">
+					<div class="container" style="width: 60%; height: 60%;">
+						<div class="row justify-content-center">
+							<div class="col-lg-8">
+								<!-- About Modal 2- Title -->
+								<h2 class="about-modal-title text-secondary text-uppercase mb-0">Foto de equipo</h2>
+								<div class="divider-custom-line"></div>
+							</div>
+							<!-- About Modal 2 - Image -->
+							<!-- When you set the tabindex=-1 for an element it allows it to get focus() through javascript. If instead you want it to get focus through tabbing through elements, then you would set the tabindex attribute to 0. -->
+							<img class="img-fluid rounded mb-2" src="img/nosotros2.jpg" style="cursor:zoom-in"
+							onclick="document.getElementById('modal02').style.display='block'">
+							<div id="modal02" class="w3-modal" onclick="this.style.display='none'">
+								<div class="w3-modal-content w3-animate-zoom">
+									<img src="img/nosotros2.jpg" style="width:100%;" id="img02">
+								</div>
+							</div>
+							<!-- About Modal 2 - Text -->
+							<p class="mb-5">Nuestros cuidadores/educadores infantiles en la guardería Lobitos. De izquiereda a derecha:
+							Ryan Gosling, Rosemarie DeWitt, Damien Chazelle, Emma Stone, Jhon Legend.</p>
+							<button class="btn btn-primary" href="#" data-dismiss="modal">
+								Cerrar ventana
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Tercera imagen y texto -->
+<section id="lastimg" class="about">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-6 order-lg-2">
+				<div class="p-4">
+					<img class="img-fluid rounded-circle" src="img/guarderiaSol.jpg"  alt="" data-toggle="modal" data-target="#about3">
+				</div>
+			</div>
+			<div class="col-lg-6 order-lg-1">
+				<div class="p-2">
+					<h2 class="display-4">Nuestras aulas</h2>
+					<p>El lugar donde tus hijos aprenderán y disfrutarán con todos sus amigos. Nuestras aulas se dividen en colores,
+					cada cuidador tiene un aula, donde disponemos de todo el material necesario para que vuestros hijos disfruten y tengan todos los cuidados necesarios.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About Modal 3 -->
+	<div class="about-modal modal fade" id="about3" tabindex="-1" role="dialog" aria-labelledby="about3" aria-hidden="true">
+		<div class="modal-dialog modal-xl" role="document">
+			<div class="modal-content">
+				<div class="modal-body text-center">
+					<div class="container" style="width: 60%; height: 60%;">
+						<div class="row justify-content-center">
+							<div class="col-lg-8">
+								<!-- About Modal 3 - Title -->
+								<h2 class="about-modal-title text-secondary text-uppercase mb-0">Foto del aula</h2>
+								<div class="divider-custom-line"></div>
+							</div>
+							<!-- About Modal 3 - Image -->
+							<!-- When you set the tabindex=-1 for an element it allows it to get focus() through javascript. If instead you want it to get focus through tabbing through elements, then you would set the tabindex attribute to 0. -->
+							<img class="img-fluid rounded mb-2" src="img/guarderiaSol.jpg" style="cursor:zoom-in"
+							onclick="document.getElementById('modal03').style.display='block'">
+							<div id="modal03" class="w3-modal" onclick="this.style.display='none'">
+								<div class="w3-modal-content w3-animate-zoom">
+									<img src="img/guarderiaSol.jpg" style="width:100%;" id="img03">
+								</div>
+							</div>
+							<!-- About Modal 3 - Text -->
+							<p class="mb-5">Está foto nos muestra el aula de los más pequeños. Podemos encontrar todo tipo de juegos y 
+							material para su cuidado.</p>
+							<button class="btn btn-primary" href="#" data-dismiss="modal">
+								Cerrar ventana
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div style="height: 70px;" id="persona">
+
+</div>
+<!-- Sección de los trabajadores en filas de 3 -->
+<section id="personal" class="text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="trabajador-persona mx-auto mb-5 mb-lg-0">
+					<img src="img/personal1.png" alt="Personal" class="img-fluid rounded-circle mb-3">
+					<h5>Ryan Gosling - Cuidador</h5>
+					<p class="font-weight-light mb-0">Formado en educación infantil. Es el responsable de los niños de 3 a 4 años.</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="trabajador-persona mx-auto mb-5 mb-lg-0">
+					<img src="img/personal2.png" alt="Personal" class="img-fluid rounded-circle mb-3">
+					<h5>Emma Stone - Cuidadora</h5>
+					<p class="font-weight-light mb-0">Formada en cursos de formación infantil. Es la responsable de los niños de 1 a 2 años.</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="trabajador-persona mx-auto mb-5 mb-lg-0">
+					<img src="img/personal3.png" alt="Personal" class="img-fluid rounded-circle mb-3">
+					<h5>Jhon Legend - Cuidador</h5>
+					<p class="font-weight-light mb-0">Formado en Grado superior de animación sociocultural. Trabaja conjuntamente con Ryan Gosling con niños de 2 a 3 años.</p>
+				</div>
+			</div>
+		</div>	
+		<br>
+		<!-- Segunda linea de personal -->
+		<div class="row" id="trabajadores-segunda-columna">
+			<div class="col-lg-4">
+				<div class="trabajador-persona mx-auto mb-5 mb-lg-0">
+					<img src="img/personal4.jpg" alt="Personal" class="img-fluid rounded-circle mb-3">
+					<h5>Damien Chazelle - Director</h5>
+					<p class="font-weight-light mb-0">Graduado en magisterio. Fundador y director de Lobitos.</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="trabajador-persona mx-auto mb-5 mb-lg-0">
+					<img src="img/personal5.jpg" alt="Personal" class="img-fluid rounded-circle mb-3">
+					<h5>Rosemarie DeWitt - Cuidadora</h5>
+					<p class="font-weight-light mb-0">Formada en psicología, es nuestra psicologa en Lobitos.</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="trabajador-persona mx-auto mb-5 mb-lg-0">
+					<img src="img/personal6.jpg" alt="Personal" class="img-fluid rounded-circle mb-3">
+					<h5>Jonathan Kimble Simmons - Cocinero</h5>
+					<p class="font-weight-light mb-0">Técnico superior en director de cocina. Encargado de cocina en Lobitos.</p>
+				</div>
+			</div>
+		</div>	
+	</div>
+</section>
+<!-- Zona instalaciones -->
+<div style="height: 70px;" id="instalaciones">
+
+</div>
+<section id="instalaciones">
+	<div class="container">
+		<!-- Cabecera de instlaciones -->
+		<div class="row">
+			<div class="col-lg-12 text-center" id="cabecera-instalaciones">
+				<h2 class="text-uppercase" style="font-family: BlackJack">Nuestras instalaciones</h2>
+			</div>
+		</div>
+		<div class="row text-center">
+			<!-- Primera img de la zona instalaciones -->
+			<div class="col-lg-4 col-sm6">
+				<div class="instalaciones-link adaptarImg">
+					<a data-toggle="modal" data-target="#instalacionesModal1" title="">
+						<img class="img-fluid" src="img/zonaexterior.jpg" alt="Zona exterior">
+					</a>
+				</div>
+				<div class="instalaciones-texto">
+					<h4>Zona Exterior</h4>
+					<p class="text-muted">
+						Te mostramos nuestras zonas exteriores, patios, alrededores...
+					</p>
+				</div>
+			</div>
+			<!-- Segunda img de la zona instalaciones -->
+			<div class="col-lg-4 col-sm6">
+				<div class="instalaciones-link adaptarImg">
+					<a data-toggle="modal" data-target="#instalacionesModal2" title="">
+						<img class="img-fluid" src="img/aulas.jpg" alt="Zona exterior">
+					</a>
+				</div>
+				<div class="instalaciones-texto">
+					<h4>Aulas</h4>
+					<p class="text-muted">Una pequeña muestra de nuestras aulas.</p>
+				</div>
+			</div>
+			<!-- Tercera img de la zona instalaciones -->
+			<div class="col-lg-4 col-sm6">
+				<div class="instalaciones-link adaptarImg">
+					<a data-toggle="modal" data-target="#instalacionesModal3" title="">
+						<img class="img-fluid" src="img/baño.jpg" alt="Zona exterior">
+					</a>
+				</div>
+				<div class="instalaciones-texto">
+					<h4>Zonas comunes</h4>
+					<p class="text-muted">Un vistazo por las el resto de instlaciones.</p>
+				</div>
+			</div>
+			<!-- Cuarta img de la zona instalaciones -->
+			<div class="col-lg-4 col-sm6">
+				<div class="instalaciones-link adaptarImg">
+					<a data-toggle="modal" data-target="#instalacionesModal4" title="">
+						<img class="img-fluid" src="img/comedor-escolar.jpg" alt="Zona exterior">
+					</a>
+				</div>
+				<div class="instalaciones-texto">
+					<h4>Comedor </h4>
+					<p class="text-muted">Te mostramos nuestra zona de comedor.</p>
+				</div>
+			</div>
+			<!-- Quinta img de la zona instalaciones -->
+			<div class="col-lg-4 col-sm6">
+				<div class="instalaciones-link adaptarImg">
+					<a data-toggle="modal" data-target="#instalacionesModal5" title="">
+						<img class="img-fluid" src="img/zonaocio.jpg" alt="Zona exterior">
+					</a>
+				</div>
+				<div class="instalaciones-texto">
+					<h4>Zonas de juego</h4>
+					<p class="text-muted">Te enseñamos nuestros parques, y zonas de ocio para los niños.</p>
+				</div>
+			</div>
+			<!-- Sexta img de la zona instalaciones -->
+			<div class="col-lg-4 col-sm6">
+				<div class="instalaciones-link adaptarImg">
+					<a data-toggle="modal" data-target="#instalacionesModal6" title="">
+						<img class="img-fluid" src="img/seguridad.jpg" alt="Zona exterior">
+					</a>
+				</div>
+				<div class="instalaciones-texto">
+					<h4>Seguridad</h4>
+					<p class="text-muted">Te mostramos nuestos elementos de seguridad.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Instalaciones modal 1 -->
+<div class="instalaciones-modal modal fade" id="instalacionesModal1" tabindex="-1" role="dialog" aria-labelledby="instalacionesModal1" aria-hidden="true">
+	<div class="modal-dialog full-screen" role="document">
+		<div class="modal-content">
+			<div class="modal-body text-center">
+				<div class="container">
+					<!-- Dentro del modal de zona 1 -->
+					<div class="row">
+						<div class="col-lg-12 text-center" id="cabecera-instalaciones">
+							<h2 class="text-uppercase" style="font-family: BlackJack">Zona exterior</h2>
+						</div>
+					</div>
+					<div class="row text-center">
+						<!-- Primera img del modal 1 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/zonaexterior1.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('ModalZonaExterior1').style.display='block'">
+								<div id="ModalZonaExterior1" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/zonaexterior1.jpg" style="width:100%;opacity: 1;" id="imgModalZonaExterior1">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 1.1 -->
+							<div class="instalaciones-texto">
+								<h4>Patio para pequeños</h4>
+								<p class="text-muted">Patio vallado para los peques.</p>
+							</div>
+						</div>
+						<!-- Segunda img del modal 1 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/zonaexterior2.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('ModalZonaExterior2').style.display='block'">
+								<div id="ModalZonaExterior2" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/zonaexterior2.jpg" style="width:100%;opacity: 1;" id="imgModalZonaExterior2">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 1.2 -->
+							<div class="instalaciones-texto">
+								<h4>Patio para niños</h4>
+								<p class="text-muted">Un patio más amplio para niños mas mayores.</p>
+							</div>
+						</div>
+						<!-- Tercera img del modal 1 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/zonaexterior3.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('ModalZonaExterior3').style.display='block'">
+								<div id="ModalZonaExterior3" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/zonaexterior3.jpg" style="width:100%;opacity: 1;" id="imgModalZonaExterior3">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 1.3 -->
+							<div class="instalaciones-texto">
+								<h4>Zona amplia para jugar</h4>
+								<p class="text-muted">Disponemos de un amplio patio para juegos y eventos.</p>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-primary" href="#" data-dismiss="modal">
+						Cerrar ventana
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Instalaciones modal 2 -->
+<div class="instalaciones-modal modal fade" id="instalacionesModal2" tabindex="-1" role="dialog" aria-labelledby="instalacionesModal2" aria-hidden="true">
+	<div class="modal-dialog full-screen" role="document">
+		<div class="modal-content">
+			<div class="modal-body text-center">
+				<div class="container">
+					<!-- Dentro del modal de la zona 2 -->
+					<div class="row">
+						<div class="col-lg-12 text-center" id="cabecera-instalaciones">
+							<h2 class="text-uppercase" style="font-family: BlackJack">Aulas</h2>
+						</div>
+					</div>
+					<div class="row text-center">
+						<!-- Primera img del modal 2 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/aulas3.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal21').style.display='block'">
+								<div id="instlacionesModalModal21" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/aulas3.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal21">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 2.1 -->
+							<div class="instalaciones-texto">
+								<h4>Aula rosa</h4>
+								<p class="text-muted">El aula de niños de 2 a 3 años. </p>
+							</div>
+						</div>
+						<!-- Segunda img del modal 2 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/aulabebe.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal22').style.display='block'">
+								<div id="instlacionesModalModal22" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/aulabebe.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal22">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 2.2 -->
+							<div class="instalaciones-texto">
+								<h4>Aula azul.</h4>
+								<p class="text-muted">El aula de los más peques.</p>
+							</div>
+						</div>
+						<!-- Tercera img del modal 2 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/aulamayores.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal23').style.display='block'">
+								<div id="instlacionesModalModal23" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/aulamayores.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal23">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 2 -->
+							<div class="instalaciones-texto">
+								<h4>Aula verde</h4>
+								<p class="text-muted">El aula de los más mayores.</p>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-primary" href="#" data-dismiss="modal">
+						Cerrar ventana
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Instalaciones modal 3 -->
+<div class="instalaciones-modal modal fade" id="instalacionesModal3" tabindex="-1" role="dialog" aria-labelledby="instalacionesModal3" aria-hidden="true">
+	<div class="modal-dialog full-screen" role="document">
+		<div class="modal-content">
+			<div class="modal-body text-center">
+				<div class="container">
+					<!-- Dentro del modal 3 -->
+					<div class="row">
+						<div class="col-lg-12 text-center" id="cabecera-instalaciones">
+							<h2 class="text-uppercase" style="font-family: BlackJack">Zonas Comunes</h2>
+						</div>
+					</div>
+					<div class="row text-center">
+						<!-- Primera img del modal 3 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/baño1.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal31').style.display='block'">
+								<div id="instlacionesModalModal31" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/baño1.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal31">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 3.1 -->
+							<div class="instalaciones-texto">
+								<h4>Baños</h4>
+								<p class="text-muted">Mostramos uno de los baños, el de los más pequeños.</p>
+							</div>
+						</div>
+						<!-- Segunda img del modal 3 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/zonacomun.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal32').style.display='block'">
+								<div id="instlacionesModalModal32" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/zonacomun.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal32">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 3.2 -->
+							<div class="instalaciones-texto">
+								<h4>Sala de lactancia</h4>
+								<p class="text-muted">Disponemos de sala de lactancia.</p>
+							</div>
+						</div>
+						<!-- Tercera img del modal 3 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/zonaeventos.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal33').style.display='block'">
+								<div id="instlacionesModalModal33" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/zonaeventos.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal33">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 3.3 -->
+							<div class="instalaciones-texto">
+								<h4>Zona de eventos</h4>
+								<p class="text-muted">Disponemos de sala para eventos y disfrute de los niños.</p>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-primary" href="#" data-dismiss="modal">
+						Cerrar ventana
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Instalaciones modal 4 -->
+<div class="instalaciones-modal modal fade" id="instalacionesModal4" tabindex="-1" role="dialog" aria-labelledby="instalacionesModal4" aria-hidden="true">
+	<div class="modal-dialog full-screen" role="document">
+		<div class="modal-content">
+			<div class="modal-body text-center">
+				<div class="container">
+					<!-- Dentro del modal 4 -->
+					<div class="row">
+						<div class="col-lg-12 text-center" id="cabecera-instalaciones">
+							<h2 class="text-uppercase" style="font-family: BlackJack">Comedor</h2>
+						</div>
+					</div>
+					<div class="row text-center">
+						<!-- Primera img del modal 4 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/comedor.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal41').style.display='block'">
+								<div id="instlacionesModalModal41" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/comedor.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal41">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 4.1 -->
+							<div class="instalaciones-texto">
+								<h4>Comedor de los peques</h4>
+								<p class="text-muted">Lugar donde comen los más pequeños.</p>
+							</div>
+						</div>
+						<!-- Segunda img del modal 4 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/comedormayor.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal42').style.display='block'">
+								<div id="instlacionesModalModal42" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/comedormayor.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal42">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 4.2 -->
+							<div class="instalaciones-texto">
+								<h4>Comedor principal</h4>
+								<p class="text-muted">Nuestro comedor principal, para niños de más de 2 años.</p>
+							</div>
+						</div>
+						<!-- Tercera img del modal 4 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/cocina.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal43').style.display='block'">
+								<div id="instlacionesModalModal43" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/cocina.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal43">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 4.3 -->
+							<div class="instalaciones-texto">
+								<h4>Cocina</h4>
+								<p class="text-muted">Disponemos de una cocina de los más innovadora.</p>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-primary" href="#" data-dismiss="modal">
+						Cerrar ventana
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Instalaciones modal 5 -->
+<div class="instalaciones-modal modal fade" id="instalacionesModal5" tabindex="-1" role="dialog" aria-labelledby="instalacionesModal5" aria-hidden="true">
+	<div class="modal-dialog full-screen" role="document">
+		<div class="modal-content">
+			<div class="modal-body text-center">
+				<div class="container">
+					<!-- Dentro del modal 5 -->
+					<div class="row">
+						<div class="col-lg-12 text-center" id="cabecera-instalaciones">
+							<h2 class="text-uppercase" style="font-family: BlackJack">Zonas de juego</h2>
+						</div>
+					</div>
+					<div class="row text-center">
+						<!-- Primera img del modal 5 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/zonaocio1.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal51').style.display='block'">
+								<div id="instlacionesModalModal51" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/zonaocio1.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal51">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 5.1 -->
+							<div class="instalaciones-texto">
+								<h4>Zonas de juego desmontables</h4>
+								<p class="text-muted">Disponemos de zonas desmontables para montarlas en cualquier sala.</p>
+							</div>
+						</div>
+						<!-- Segunda img del modal 5 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/zonaocioex.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal52').style.display='block'">
+								<div id="instlacionesModalModal52" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/zonaocioex.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal52">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 5.2 -->
+							<div class="instalaciones-texto">
+								<h4>Zona de juego para primavera/verano</h4>
+								<p class="text-muted">En primavera/verano montamos una zona de juego exterior.</p>
+							</div>
+						</div>
+						<!-- Tercera img del modal 3 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/ociobebe.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal53').style.display='block'">
+								<div id="instlacionesModalModal53" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/ociobebe.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal53">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 5.3 -->
+							<div class="instalaciones-texto">
+								<h4>Sala de juesgos </h4>
+								<p class="text-muted">Otra de nuestras salas de juegos.</p>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-primary" href="#" data-dismiss="modal">
+						Cerrar ventana
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Instalaciones modal 6 -->
+<div class="instalaciones-modal modal fade" id="instalacionesModal6" tabindex="-1" role="dialog" aria-labelledby="instalacionesModal6" aria-hidden="true">
+	<div class="modal-dialog full-screen" role="document">
+		<div class="modal-content">
+			<div class="modal-body text-center">
+				<div class="container">
+					<!-- Dentro del modal 6 -->
+					<div class="row">
+						<div class="col-lg-12 text-center" id="cabecera-instalaciones">
+							<h2 class="text-uppercase" style="font-family: BlackJack">Seguridad</h2>
+						</div>
+					</div>
+					<div class="row text-center">
+						<!-- Primera img del modal 6 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/seguridad1.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal61').style.display='block'">
+								<div id="instlacionesModalModal61" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/seguridad1.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal61">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 6.1 -->
+							<div class="instalaciones-texto">
+								<h4>Protecciones</h4>
+								<p class="text-muted">Disponemos de diferentes tipos de protecciones: En esquinas, enchufes...</p>
+							</div>
+						</div>
+						<!-- Segunda img del modal 6 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/camara.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal62').style.display='block'">
+								<div id="instlacionesModalModal62" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/camara.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal62">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 6.2 -->
+							<div class="instalaciones-texto">
+								<h4>Camaras de seguridad</h4>
+								<p class="text-muted">Disponemos de camaras de seguridad en el perímetro exterior.</p>
+							</div>
+						</div>
+						<!-- Tercera img del modal 6 -->
+						<div class="col-lg-4 col-md6">
+							<div class="instalaciones-link">
+								<img class="img-fluid imgModal" src="img/rampa.jpg" style="cursor:zoom-in"
+								onclick="document.getElementById('instlacionesModalModal63').style.display='block'">
+								<div id="instlacionesModalModal63" class="w3-modal" onclick="this.style.display='none'">
+									<div class="w3-modal-content w3-animate-zoom">
+										<img src="img/rampa.jpg" style="width:100%;opacity: 1;" id="imgInstlacionesModalModal63">
+									</div>
+								</div>
+							</div>
+							<!-- Texto imagen instalaciones modal 3.3 -->
+							<div class="instalaciones-texto">
+								<h4>Accesibilidad</h4>
+								<p class="text-muted">Nuestas instalaciones están adaptadas a todo el mundo. Disponemos de accesos con rampa, puertas anchas...</p>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-primary" href="#" data-dismiss="modal">
+						Cerrar ventana
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="height: 70px;" id="contacto">
+
+</div>
+<section id="" class="map">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 text-center" id="cabecera-contacto">
+				<h2 class="text-uppercase" style="font-family: BlackJack">Encuéntranos aquí</h2>
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-lg-4 box1">
+				<div class="pt-3 pb-2"><img src="img/phone-square-solid.svg" alt="Teléfono" width="48px" height="48px"></div>
+				<h3>+123456789</h3>
+			</div>
+			<div class="col-lg-4 box2">
+				<div class="pt-3 pb-2"><img src="img/home-solid.svg" alt="" width="48px" height="48px"></div>
+				<h5>Av. Monte Medulio, S/N, 24400 Ponferrada, León</h5>
+			</div>
+			<div class="col-lg-4 box3">
+				<div class="pt-3 pb-2"><img src="img/envelope-regular.svg" alt="E-mail" width="48px" height="48px"></div>
+				<h3>cifp@educacyl.es</h3>
+			</div>
+		</div>
+	</div>
+	<iframe width="100%" height="100%" scrolling="no" marginheight="0" marginwidth="0"
+	src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2938.7630446412377!2d-6.602911084706355!3d42.56032413042375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd30ba5e104fa56f%3A0xfe00d5c65f12d833!2sCIFP%20Ponferrada!5e0!3m2!1ses!2ses!4v1576891640506!5m2!1ses!2ses"></iframe>
+	<small>
+		<a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2938.7630446412377!2d-6.602911084706355!3d42.56032413042375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd30ba5e104fa56f%3A0xfe00d5c65f12d833!2sCIFP%20Ponferrada!5e0!3m2!1ses!2ses!4v1576891640506!5m2!1ses!2ses"></a>
+	</small>
+	<footer class="box4">
+		<div class="container-fluid">
+			<div class="col-md12 text-center" id="redesSociales">
+				<a href="http://www.facebook.es" target="_blank" id="facebook">
+					<svg  width='50' height='50' viewbox='0 0 500 500'><title>facebook</title><g transform="translate(0 -552.362)"><rect  height="500" rx="250" ry="250" width="500" y="552.362" fill="#45619d"/><path d="M289.688 612.362c-67.785 0-90.157 31.1-90.157 84.438v42.218H155v63.375h44.531v189.97h82.125v-189.97h55.813l7.5-63.375h-63.313v-37.656c0-17.02 3.735-25.656 30.156-25.656h33.157v-63.344h-55.281z" fill="#fff"/></g></svg></a>
+				</a>
+				<a href="http://www.twitter.es" target="_blank" id="twitter">
+					<svg width="50" height="50" viewBox="0 0 112.197 112.197" ><title>twitter</title><circle cx="56.099" cy="56.098" r="56.098" fill="#55acee"/><path d="M90.461 40.316a26.753 26.753 0 01-7.702 2.109 13.445 13.445 0 005.897-7.417 26.843 26.843 0 01-8.515 3.253 13.396 13.396 0 00-9.79-4.233c-7.404 0-13.409 6.005-13.409 13.409 0 1.051.119 2.074.349 3.056-11.144-.559-21.025-5.897-27.639-14.012a13.351 13.351 0 00-1.816 6.742c0 4.651 2.369 8.757 5.965 11.161a13.314 13.314 0 01-6.073-1.679l-.001.17c0 6.497 4.624 11.916 10.757 13.147a13.362 13.362 0 01-3.532.471c-.866 0-1.705-.083-2.523-.239 1.706 5.326 6.657 9.203 12.526 9.312a26.904 26.904 0 01-16.655 5.74c-1.08 0-2.15-.063-3.197-.188a37.929 37.929 0 0020.553 6.025c24.664 0 38.152-20.432 38.152-38.153 0-.581-.013-1.16-.039-1.734a27.192 27.192 0 006.692-6.94z" fill="#f1f2f2"/></svg></a>
+				</a>
+				<a href="http://www.instagram.es" target="_blank" id="instagram">
+					<svg width="55" height="55" viewBox="0 0 550 550"><path d="M37.4 179.5C25.5 209 19 241.2 19 275c0 141.4 114.6 256 256 256s256-114.6 256-256c0-33.8-6.5-66-18.4-95.5H37.4z" fill="#EDE5DA" stroke="#603913" stroke-miterlimit="10"/><title>instagram</title><path d="M275 19c-32.6 0-63.9 6.1-92.6 17.3v142.5H161V45.9l.2-.2c-.1.1-.3.1-.4.2v132.9h-21.4V57.9c-.1 0-.1.1-.2.1v120.8h-18.8V70.9c-.2.1-.4.3-.5.4v107.4H96V92c-25.2 24.6-45.3 54.3-58.6 87.5h475.2C474.7 85.4 382.6 19 275 19z" fill="#A86F5A" stroke="#603913" stroke-miterlimit="10"/><path d="M119.9 178.7V71.4C111.5 77.7 103.6 84.6 96 92v86.8h23.9z" fill="#EF4E7B"/><path d="M139.2 178.7V58c-6.5 4.1-12.7 8.4-18.8 13v107.8h18.8z" fill="#FEEB62"/><path d="M160.8 178.7V45.9c-7.3 3.7-14.5 7.7-21.4 12v120.9h21.4z" fill="#A4D7BD"/><path d="M161 178.7h21.4V36.3c-7.2 2.8-14.3 5.9-21.2 9.4l-.2.2v132.8z" fill="#7AC8EF"/><path d="M95.6 178.7c-.4.8-.6 1.7-.6 2.7v26c0 3.6 2.9 6.5 6.5 6.5h75.8c3.6 0 6.5-2.9 6.5-6.5v-26c0-1-.2-1.9-.6-2.7H95.6z" fill="#524441"/><path d="M407.3 161.7h-36.9c-6.6 0-12-5.4-12-12V116c0-6.6 5.4-12 12-12h36.9c6.6 0 12 5.4 12 12v33.8c0 6.5-5.4 11.9-12 11.9z" fill="#062327"/><circle cx="388.8" cy="132.9" fill="#253C3E" r="19.8"/><circle cx="388.8" cy="132.9" fill="#1E2734" r="7.2"/><g><circle cx="280.3" cy="285.8" fill="#603913" r="107.5"/><circle cx="279.2" cy="280.9" fill="#E2DEDC" r="107.5"/><circle cx="279.2" cy="280.9" fill="#253C3E" r="87.5"/><circle cx="279.2" cy="280.9" fill="#304748" r="69.3"/><circle cx="279.2" cy="280.9" fill="#2D4C4C" r="46.6"/><circle cx="279.2" cy="280.9" fill="#23333C" r="29.8"/></g></svg>
+				</a>
+			</div>
+		</div>
+	</footer>
+	<div class="container-fluid text-center pb-2 pt-1" id="copyright">	
+		<small>Copyright &copy; Alberto Diéguez Álvarez</small>
+	</div>
+</section>
+
+
+
+
+<!--Cargamos las librerias de jquery y bootstrap-->
+<script src="js/jquery-3.4.1.min.js"></script>
+<!--Algunas propiedades de bootstrap no funcionan bien sin la libreria popper, esta debe ser cargada primero-->
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="js/lobitos.js"></script>	
+</body>
+</html>

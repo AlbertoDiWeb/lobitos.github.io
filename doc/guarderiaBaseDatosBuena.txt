@@ -1,0 +1,373 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema guarderia_database
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema guarderia_database
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `guarderia_database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish2_ci ;
+USE `guarderia_database` ;
+
+-- -----------------------------------------------------
+-- Table `guarderia_database`.`aulas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `guarderia_database`.`aulas` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `color` VARCHAR(45) NOT NULL,
+  `usuarioCreacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarioModificacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaModificacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `color_UNIQUE` (`color` ASC))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `guarderia_database`.`cuentaCuidadores`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `guarderia_database`.`cuentaCuidadores` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `usuario` VARCHAR(45) NULL DEFAULT NULL,
+  `password` VARCHAR(45) NULL DEFAULT NULL,
+  `tipo` VARCHAR(45) NULL DEFAULT NULL,
+  `usuarioCreacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarioModificacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaModificacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `guarderia_database`.`cuidadores`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `guarderia_database`.`cuidadores` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `dni` CHAR(10) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `primerApellido` VARCHAR(45) NULL DEFAULT NULL,
+  `segundoApellido` VARCHAR(45) NULL DEFAULT NULL,
+  `fecha_nacimiento` DATE NULL DEFAULT NULL,
+  `usuarioCreacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarioModificacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaModificacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `cuentaCuidadores_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `cuentaCuidadores_id`),
+  UNIQUE INDEX `dni_UNIQUE` (`dni` ASC),
+  INDEX `fk_cuidadores_cuentaCuidadores1_idx` (`cuentaCuidadores_id` ASC),
+  CONSTRAINT `fk_cuidadores_cuentaCuidadores1`
+    FOREIGN KEY (`cuentaCuidadores_id`)
+    REFERENCES `guarderia_database`.`cuentaCuidadores` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `guarderia_database`.`cuentaTutores`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `guarderia_database`.`cuentaTutores` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `usuario` VARCHAR(45) NULL DEFAULT NULL,
+  `password` VARCHAR(45) NULL DEFAULT NULL,
+  `usuarioCreacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarioModificacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaModificacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `guarderia_database`.`tutores`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `guarderia_database`.`tutores` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `dni` VARCHAR(10) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `primerApellido` VARCHAR(45) NULL DEFAULT NULL,
+  `segundoApellido` VARCHAR(45) NULL DEFAULT NULL,
+  `direccion` VARCHAR(45) NULL DEFAULT NULL,
+  `usuarioCreacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarioModificacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaModificacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `cuentaTutores_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `cuentaTutores_id`),
+  UNIQUE INDEX `dni_UNIQUE` (`dni` ASC),
+  INDEX `fk_tutores_cuentaTutores1_idx` (`cuentaTutores_id` ASC),
+  CONSTRAINT `fk_tutores_cuentaTutores1`
+    FOREIGN KEY (`cuentaTutores_id`)
+    REFERENCES `guarderia_database`.`cuentaTutores` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `guarderia_database`.`niños`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `guarderia_database`.`niños` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `primerApellido` VARCHAR(45) NULL DEFAULT NULL,
+  `segundoApellido` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaNacimiento` DATE NULL DEFAULT NULL,
+  `usuarioCreacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarioModificacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaModificacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tutores_id` INT(11) NOT NULL,
+  `cuidadores_id` INT(11) NOT NULL,
+  `aulas_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_niños_tutores_idx` (`tutores_id` ASC),
+  INDEX `fk_niños_cuidadores1_idx` (`cuidadores_id` ASC),
+  INDEX `fk_niños_aulas1_idx` (`aulas_id` ASC),
+  CONSTRAINT `fk_niños_tutores`
+    FOREIGN KEY (`tutores_id`)
+    REFERENCES `guarderia_database`.`tutores` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_niños_cuidadores1`
+    FOREIGN KEY (`cuidadores_id`)
+    REFERENCES `guarderia_database`.`cuidadores` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_niños_aulas1`
+    FOREIGN KEY (`aulas_id`)
+    REFERENCES `guarderia_database`.`aulas` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `guarderia_database`.`matricula`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `guarderia_database`.`matricula` (
+  `id` INT(11) NOT NULL,
+  `cod_matricula` INT(11) NOT NULL,
+  `usuarioCreacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarioModificacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaModificacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `niños_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `niños_id`),
+  UNIQUE INDEX `cod_matricula_UNIQUE` (`cod_matricula` ASC),
+  INDEX `fk_matricula_niños1_idx` (`niños_id` ASC),
+  CONSTRAINT `fk_matricula_niños1`
+    FOREIGN KEY (`niños_id`)
+    REFERENCES `guarderia_database`.`niños` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `guarderia_database`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `guarderia_database`.`usuarios` (
+  `id` INT(11) NOT NULL,
+  `usuario` VARCHAR(45) NULL DEFAULT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `usuarioCreacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarioModificacion` VARCHAR(45) NULL DEFAULT NULL,
+  `fechaModificacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_spanish2_ci;
+
+USE `guarderia_database`;
+
+DELIMITER $$
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`aulas_BEFORE_INSERT`
+BEFORE INSERT ON `guarderia_database`.`aulas`
+FOR EACH ROW
+BEGIN
+set new.usuarioCreacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`aulas_BEFORE_UPDATE`
+BEFORE UPDATE ON `guarderia_database`.`aulas`
+FOR EACH ROW
+BEGIN
+set new.usuarioModificacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`cuentaCuidadores_BEFORE_INSERT`
+BEFORE INSERT ON `guarderia_database`.`cuentaCuidadores`
+FOR EACH ROW
+BEGIN
+set new.usuarioCreacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`cuentaCuidadores_BEFORE_UPDATE`
+BEFORE UPDATE ON `guarderia_database`.`cuentaCuidadores`
+FOR EACH ROW
+BEGIN
+set new.usuarioModificacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`cuidadores_BEFORE_INSERT`
+BEFORE INSERT ON `guarderia_database`.`cuidadores`
+FOR EACH ROW
+BEGIN
+set new.usuarioCreacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`cuidadores_BEFORE_UPDATE`
+BEFORE UPDATE ON `guarderia_database`.`cuidadores`
+FOR EACH ROW
+BEGIN
+set new.usuarioModificacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`cuentaTutores_BEFORE_INSERT`
+BEFORE INSERT ON `guarderia_database`.`cuentaTutores`
+FOR EACH ROW
+BEGIN
+set new.usuarioCreacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`cuentaTutores_BEFORE_UPDATE`
+BEFORE UPDATE ON `guarderia_database`.`cuentaTutores`
+FOR EACH ROW
+BEGIN
+set new.usuarioModificacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`tutores_BEFORE_INSERT`
+BEFORE INSERT ON `guarderia_database`.`tutores`
+FOR EACH ROW
+BEGIN
+set new.usuarioCreacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`tutores_BEFORE_UPDATE`
+BEFORE UPDATE ON `guarderia_database`.`tutores`
+FOR EACH ROW
+BEGIN
+set new.usuarioModificacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`niños_BEFORE_INSERT`
+BEFORE INSERT ON `guarderia_database`.`niños`
+FOR EACH ROW
+BEGIN
+set new.usuarioCreacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`niños_BEFORE_UPDATE`
+BEFORE UPDATE ON `guarderia_database`.`niños`
+FOR EACH ROW
+BEGIN
+set new.usuarioModificacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`matricula_BEFORE_INSERT`
+BEFORE INSERT ON `guarderia_database`.`matricula`
+FOR EACH ROW
+BEGIN
+set new.usuarioCreacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`matricula_BEFORE_UPDATE`
+BEFORE UPDATE ON `guarderia_database`.`matricula`
+FOR EACH ROW
+BEGIN
+set new.usuarioModificacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`usuarios_BEFORE_INSERT`
+BEFORE INSERT ON `guarderia_database`.`usuarios`
+FOR EACH ROW
+BEGIN
+set new.usuarioCreacion = user();
+END$$
+
+USE `guarderia_database`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `guarderia_database`.`usuarios_BEFORE_UPDATE`
+BEFORE UPDATE ON `guarderia_database`.`usuarios`
+FOR EACH ROW
+BEGIN
+set new.usuarioModificacion = user();
+END$$
+
+
+DELIMITER ;
+

@@ -1,0 +1,63 @@
+html,body,.container-fluid {
+	box-sizing: border-box;
+	height: 100%;
+	margin: 0 auto;
+}
+#box{
+	min-height: 100%;
+	background-image: url('../img/cielo.png');
+}
+#box-lados{
+	background-color: #A9F5F2;
+}
+fieldset{
+	height: 350px;
+	width: 40%;
+	background: rgba(0,0,0,0.5);
+	border-radius: 15px;
+	margin: 0 auto;
+	margin-top: 10%;
+	color: white;
+	padding-top: 5%;
+}
+@font-face {
+	font-family: 'BlackJack';
+	src: url('../fonts/blackjack.otf');
+	src: url('WebFont.eot?iefix') format('eot'),
+	url('../fonts/blackjack-webfont.woff') format('woff'),
+}
+.blackJack{
+	font-family: BlackJack;
+}
+.cabeceraFieldset{
+	padding-top: 10px;
+}
+.form-control{
+	text-align: center;
+	width: 75%;
+	margin: 0 auto;
+}
+@media (max-width: 400px) {
+	fieldset{
+		width: 80%;
+		height: 300px;
+		margin-top: 40%;
+	}
+}
+.error {
+	width: 70%; 
+	margin: 0px auto; 
+	padding-top: 15px;
+	border: 1px solid #a94442; 
+	color: #a94442; 
+	background: #f2dede; 
+	border-radius: 5px; 
+	text-align: center;
+}
+.success {
+	color: #3c763d; 
+	background: #dff0d8; 
+	border: 1px solid #3c763d;
+	margin-bottom: 20px;
+}
+
