@@ -1,5 +1,5 @@
 # Lobitos
-[WEB LOBITOS](https://alberto-dieguez.github.io/lobitos.github.io/)
+[WEB LOBITOS](https://alberto-dieguez.github.io/lobitos)
 
 Proyecto final para el ciclo superior de Desarrollo de Aplicaciones Web, cursado en CIFP Ponferrada (León).
 Debido a las limitaciones de una web estática, el index ha sido modificado como .html en vez de php, con lo cual todo lo relaccionado a lo backend no funciona.
